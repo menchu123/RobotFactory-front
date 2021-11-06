@@ -10,7 +10,7 @@ exports[`Given a Robot component When it recives and object then it should rende
     <img
       alt=""
       className="robot__image-file"
-      height="200"
+      height="250"
       src="https://cdn.kapwing.com/video_image-uBSRyuvqm.jpeg"
     />
   </div>
