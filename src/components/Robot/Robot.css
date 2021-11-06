@@ -1,8 +1,11 @@
 .robot__image-file {
   object-fit: cover;
+  object-position: center;
   width: 100%;
 }
 
 .robot {
   font-size: smaller;
+  border-radius: 20px;
+  overflow: hidden;
 }

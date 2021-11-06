@@ -8,7 +8,7 @@ const Robot = ({ robot }) => {
           className="robot__image-file"
           src={robot.imagen}
           alt=""
-          height="200"
+          height="250"
         />
       </div>
       <div className="robot__info card-body">
