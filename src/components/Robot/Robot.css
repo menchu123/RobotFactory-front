@@ -1,0 +1,8 @@
+.robot__image-file {
+  object-fit: cover;
+  width: 100%;
+}
+
+.robot {
+  font-size: smaller;
+}
