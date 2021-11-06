@@ -1,9 +1,28 @@
+import { useState } from "react";
 import "./Form.css";
 
 const Form = () => {
+  const initialValues = {
+    velocidad: "",
+    resistencia: "",
+    creación: "",
+    nombre: "",
+    imagen: "",
+  };
+
+  const [robotData, setRobotData] = useState(initialValues);
+
+  const onChange = (event) => {
+    setRobotData({ ...robotData, [event.target.id]: event.target.value });
+  };
+
+  const onSubmit = (event) => {
+    event.preventDefault();
+  };
+
   return (
     <>
-      <div className="form card text-white bg-dark col">
+      <div className="form card text-white bg-dark col" onSubmit={onSubmit}>
         <div className="form__image card-img-top">
           <img
             className="form__image-file"
@@ -25,6 +44,8 @@ const Form = () => {
                 className="form-control"
                 id="nombre"
                 placeholder="Nombre"
+                value={robotData.nombre}
+                onChange={(event) => onChange(event)}
               />
             </div>
             <div className="form-group col">
@@ -34,13 +55,20 @@ const Form = () => {
                 className="form-control"
                 id="imagen"
                 placeholder="URL Imagen"
+                value={robotData.imagen}
+                onChange={(event) => onChange(event)}
               />
             </div>
           </div>
           <div className="row">
             <div className="form-group col mt-2">
               <label htmlFor="velocidad">Velocidad</label>
-              <select id="velocidad" className="form-control">
+              <select
+                id="velocidad"
+                className="form-control"
+                value={robotData.velocidad}
+                onChange={(event) => onChange(event)}
+              >
                 <option defaultValue>0</option>
                 <option>1</option>
                 <option>2</option>
@@ -56,7 +84,12 @@ const Form = () => {
             </div>
             <div className="form-group col mt-2">
               <label htmlFor="resistencia">Resistencia</label>
-              <select id="resistencia" className="form-control">
+              <select
+                id="resistencia"
+                className="form-control"
+                value={robotData.resistencia}
+                onChange={(event) => onChange(event)}
+              >
                 <option defaultValue>0</option>
                 <option>1</option>
                 <option>2</option>
@@ -74,7 +107,13 @@ const Form = () => {
           <div className="row">
             <div className="form-group col mt-2">
               <label htmlFor="creación">Año</label>
-              <input type="number" className="form-control" id="creación" />
+              <input
+                type="number"
+                className="form-control"
+                id="creación"
+                value={robotData.creación}
+                onChange={(event) => onChange(event)}
+              />
             </div>
           </div>
           <div className="form-group"></div>
