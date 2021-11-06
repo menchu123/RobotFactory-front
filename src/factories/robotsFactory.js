@@ -1,5 +1,4 @@
 import { datatype, name } from "faker";
-import { date } from "faker/locale/es";
 import { image } from "faker/locale/uk";
 import { Factory } from "fishery";
 
@@ -7,7 +6,7 @@ const factory = Factory.define(({ sequence }) => ({
   características: {
     velocidad: datatype.number(10),
     resistencia: datatype.number(10),
-    creación: date.past(),
+    creación: datatype.number(10),
   },
   _id: sequence,
   nombre: name.firstName(),
