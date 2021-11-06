@@ -18,6 +18,19 @@ const Form = () => {
 
   const onSubmit = (event) => {
     event.preventDefault();
+    const newRobot = {
+      características: {
+        velocidad: robotData.velocidad,
+        resistencia: robotData.resistencia,
+        creación: robotData.creación,
+      },
+      nombre: "María " + robotData.nombre,
+      imagen: robotData.imagen,
+    };
+
+    console.log(newRobot);
+
+    setRobotData(initialValues);
   };
 
   return (
@@ -28,7 +41,7 @@ const Form = () => {
             className="form__image-file"
             src="https://cdn.vectorstock.com/i/1000x1000/00/03/robot-silhouette-vector-6180003.jpg"
             alt="anon-robot"
-            height="185"
+            height="190"
           />
         </div>
         <form className="form col my-4 px-2">
