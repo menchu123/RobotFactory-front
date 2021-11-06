@@ -1,19 +1,19 @@
 import "./Robot.css";
 
-const Robot = () => {
+const Robot = ({ robot }) => {
   return (
     <li className="col mt-3">
       <div className="robot card text-white bg-dark col">
         <div className="robot__image card-img-top">
           <img
             className="robot__image-file"
-            src="https://www.electronicaembajadores.com/datos/fotos/articulos/grandes/kv/kv6a/kv6a018.jpg"
+            src={robot.imagen}
             alt=""
             height="200"
           />
         </div>
         <div className="robot__info card-body">
-          <h5 className="robot__name card-title">ROGELIO</h5>
+          <h5 className="robot__name card-title">{robot.nombre}</h5>
           <div class="robot__data">
             <table className="table text-white">
               <thead>
@@ -24,15 +24,15 @@ const Robot = () => {
               <tbody>
                 <tr>
                   <td>VELOCIDAD</td>
-                  <td>10</td>
+                  <td>{robot.características.velocidad}</td>
                 </tr>
                 <tr>
                   <td>RESISTENCIA</td>
-                  <td>1</td>
+                  <td>{robot.características.resistencia}</td>
                 </tr>
                 <tr>
                   <td>AÑO DE CREACIÓN</td>
-                  <td>2001</td>
+                  <td>{robot.características.creación}</td>
                 </tr>
               </tbody>
             </table>
