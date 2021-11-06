@@ -17,4 +17,16 @@ describe("Given a robotsReducer reducer", () => {
       expect(newList).toEqual(robotsList);
     });
   });
+
+  describe("When it receives an empty robots list and an unknown action", () => {
+    test("Then it should return the same empty robot list", () => {
+      const initialRobots = [];
+
+      const action = {};
+
+      const newList = robotsReducer(initialRobots, action);
+
+      expect(newList).toEqual(initialRobots);
+    });
+  });
 });
