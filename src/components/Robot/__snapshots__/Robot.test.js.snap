@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given a Robot component When it recives and object then it should render a card with the object info inside 1`] = `
+<li
+  className="col mt-3"
+>
+  <div
+    className="robot card text-white bg-dark col"
+  >
+    <div
+      className="robot__image card-img-top"
+    >
+      <img
+        alt=""
+        className="robot__image-file"
+        height="200"
+        src="https://cdn.kapwing.com/video_image-uBSRyuvqm.jpeg"
+      />
+    </div>
+    <div
+      className="robot__info card-body"
+    >
+      <h5
+        className="robot__name card-title"
+      >
+        Rogelio
+      </h5>
+      <div
+        class="robot__data"
+      >
+        <table
+          className="table text-white"
+        >
+          <thead>
+            <tr>
+              <th
+                scope="col"
+              >
+                CARACTERÍSTICAS
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                VELOCIDAD
+              </td>
+              <td>
+                0
+              </td>
+            </tr>
+            <tr>
+              <td>
+                RESISTENCIA
+              </td>
+              <td>
+                10
+              </td>
+            </tr>
+            <tr>
+              <td>
+                AÑO DE CREACIÓN
+              </td>
+              <td>
+                2021
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div
+      className="buttons mb-3 mx-3"
+    >
+      <button
+        className="btn btn-warning m-2"
+      >
+        Edit
+      </button>
+      <button
+        className="btn btn-danger m-2"
+      >
+        Delete
+      </button>
+    </div>
+  </div>
+</li>
+`;
