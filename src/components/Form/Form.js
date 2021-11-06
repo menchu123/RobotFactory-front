@@ -16,9 +16,9 @@ const Form = () => {
           <h5>Añade un robot</h5>
           <div className="row">
             <div className="input-group col-md-6">
-              <label for="nombre"></label>
-              <div class="input-group-prepend">
-                <div class="input-group-text">María</div>
+              <label htmlFor="nombre"></label>
+              <div className="input-group-prepend">
+                <div className="input-group-text">María</div>
               </div>
               <input
                 type="text"
@@ -28,7 +28,7 @@ const Form = () => {
               />
             </div>
             <div className="form-group col">
-              <label for="imagen"></label>
+              <label htmlFor="imagen"></label>
               <input
                 type="text"
                 className="form-control"
@@ -39,9 +39,9 @@ const Form = () => {
           </div>
           <div className="row">
             <div className="form-group col mt-2">
-              <label for="velocidad">Velocidad</label>
+              <label htmlFor="velocidad">Velocidad</label>
               <select id="velocidad" className="form-control">
-                <option selected>0</option>
+                <option defaultValue>0</option>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
@@ -55,9 +55,9 @@ const Form = () => {
               </select>
             </div>
             <div className="form-group col mt-2">
-              <label for="resistencia">Resistencia</label>
+              <label htmlFor="resistencia">Resistencia</label>
               <select id="resistencia" className="form-control">
-                <option selected>0</option>
+                <option defaultValue>0</option>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
@@ -73,7 +73,7 @@ const Form = () => {
           </div>
           <div className="row">
             <div className="form-group col mt-2">
-              <label for="creación">Año</label>
+              <label htmlFor="creación">Año</label>
               <input type="number" className="form-control" id="creación" />
             </div>
           </div>
