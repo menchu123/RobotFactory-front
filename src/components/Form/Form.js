@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Form.css";
 
 const Form = () => {
@@ -11,10 +11,23 @@ const Form = () => {
   };
 
   const [robotData, setRobotData] = useState(initialValues);
+  const [isDisabled, setIsDisabled] = useState(true);
 
   const onChange = (event) => {
     setRobotData({ ...robotData, [event.target.id]: event.target.value });
   };
+
+  useEffect(() => {
+    if (
+      robotData.nombre !== "" &&
+      robotData.imagen !== "" &&
+      robotData.creación !== ""
+    ) {
+      setIsDisabled(false);
+    } else {
+      setIsDisabled(true);
+    }
+  }, [robotData.creación, robotData.imagen, robotData.nombre]);
 
   const onSubmit = (event) => {
     event.preventDefault();
@@ -28,7 +41,10 @@ const Form = () => {
       imagen: robotData.imagen,
     };
 
-    console.log(newRobot);
+    console.log(
+      "*In development* Submitting will create the following robot: " +
+        JSON.stringify(newRobot)
+    );
 
     setRobotData(initialValues);
   };
@@ -130,7 +146,11 @@ const Form = () => {
             </div>
           </div>
           <div className="form-group"></div>
-          <button type="submit" className="btn btn-warning mt-3">
+          <button
+            type="submit"
+            className="btn btn-warning mt-3"
+            disabled={isDisabled}
+          >
             Añadir
           </button>
         </form>
