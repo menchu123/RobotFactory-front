@@ -1,0 +1,11 @@
+.form__image-file {
+  object-fit: cover;
+  object-position: center top;
+  width: 100%;
+}
+
+.form {
+  font-size: smaller;
+  border-radius: 20px;
+  overflow: hidden;
+}
