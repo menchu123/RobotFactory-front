@@ -1,5 +1,4 @@
 import "./App.css";
-import Robot from "./components/Robot/Robot";
 import RobotList from "./components/RobotList/RobotList";
 
 function App() {
