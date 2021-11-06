@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import Robot from "./Robot";
 import ReactTestRenderer from "react-test-renderer";
+import { getRandomRobot } from "../../factories/robotsFactory";
 
 describe("Given a Robot component", () => {
   describe("When it is passed a robot object with the name 'Rogelio'", () => {
@@ -24,6 +25,19 @@ describe("Given a Robot component", () => {
       expect(robotName).toBeInTheDocument();
     });
   });
+
+  describe("When it is passed a robot object", () => {
+    test("Then it should render a card", () => {
+      const robot = getRandomRobot();
+
+      render(<Robot robot={robot} />);
+
+      const robotName = screen.getByRole("heading");
+
+      expect(robotName).toBeInTheDocument();
+    });
+  });
+
   describe("When it recives and object", () => {
     test("then it should render a card with the object info inside", () => {
       const robot = {
