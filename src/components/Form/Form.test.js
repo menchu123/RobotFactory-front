@@ -22,9 +22,10 @@ describe("Given a Robot component", () => {
     test("Then it should have a disabled button", () => {
       const store = configureStore();
       const createRobot = jest.fn();
+      const currentRobot = "";
       render(
         <Provider store={store}>
-          <Form createRobot={createRobot} />
+          <Form createRobot={createRobot} currentRobot={currentRobot} />
         </Provider>
       );
       const addButton = screen.getByRole("button", {
@@ -39,9 +40,10 @@ describe("Given a Robot component", () => {
     test("Then it should have a disabled button", () => {
       const store = configureStore();
       const createRobot = jest.fn();
+      const currentRobot = "";
       render(
         <Provider store={store}>
-          <Form createRobot={createRobot} />
+          <Form createRobot={createRobot} currentRobot={currentRobot} />
         </Provider>
       );
 
@@ -60,9 +62,10 @@ describe("Given a Robot component", () => {
     test("Then it should have a disabled button", () => {
       const store = configureStore();
       const createRobot = jest.fn();
+      const currentRobot = "";
       render(
         <Provider store={store}>
-          <Form createRobot={createRobot} />
+          <Form createRobot={createRobot} currentRobot={currentRobot} />
         </Provider>
       );
 
@@ -107,9 +110,10 @@ describe("Given a Robot component", () => {
     test("Then the value of nombre should be updated", () => {
       const store = configureStore();
       const createRobot = jest.fn();
+      const currentRobot = "";
       render(
         <Provider store={store}>
-          <Form createRobot={createRobot} />
+          <Form createRobot={createRobot} currentRobot={currentRobot} />
         </Provider>
       );
 
@@ -125,9 +129,10 @@ describe("Given a Robot component", () => {
     test("Then the value of URL Imagen should be updated", () => {
       const store = configureStore();
       const createRobot = jest.fn();
+      const currentRobot = "";
       render(
         <Provider store={store}>
-          <Form createRobot={createRobot} />
+          <Form createRobot={createRobot} currentRobot={currentRobot} />
         </Provider>
       );
 
