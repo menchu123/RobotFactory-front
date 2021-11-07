@@ -80,6 +80,7 @@ const Form = () => {
             <div className="form-group col">
               <label htmlFor="imagen"></label>
               <input
+                data-type="image"
                 type="text"
                 className="form-control"
                 id="imagen"
@@ -150,6 +151,7 @@ const Form = () => {
             type="submit"
             className="btn btn-warning mt-3"
             disabled={isDisabled}
+            onClick={onSubmit}
           >
             Añadir
           </button>
