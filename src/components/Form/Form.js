@@ -2,7 +2,13 @@ import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import "./Form.css";
 
-const Form = ({ createRobot }) => {
+const Form = ({
+  createRobot,
+  currentRobot,
+  updateRobot,
+  isEditing,
+  setIsEditing,
+}) => {
   const initialValues = {
     velocidad: "0",
     resistencia: "0",
@@ -13,6 +19,18 @@ const Form = ({ createRobot }) => {
 
   const [robotData, setRobotData] = useState(initialValues);
   const [isDisabled, setIsDisabled] = useState(true);
+
+  useEffect(() => {
+    if (currentRobot !== "") {
+      setRobotData({
+        velocidad: currentRobot.características.velocidad,
+        resistencia: currentRobot.características.resistencia,
+        creación: currentRobot.características.creación,
+        nombre: currentRobot.nombre.replace("María ", ""),
+        imagen: currentRobot.imagen,
+      });
+    }
+  }, [currentRobot]);
 
   const onChange = (event) => {
     setRobotData({ ...robotData, [event.target.id]: event.target.value });
@@ -30,8 +48,7 @@ const Form = ({ createRobot }) => {
     }
   }, [robotData.creación, robotData.imagen, robotData.nombre]);
 
-  const onSubmit = (event) => {
-    event.preventDefault();
+  const createRobotOnClick = () => {
     const newRobot = {
       características: {
         velocidad: robotData.velocidad,
@@ -43,6 +60,30 @@ const Form = ({ createRobot }) => {
     };
 
     createRobot(newRobot);
+  };
+
+  const editRobotOnClick = () => {
+    const updatedRobot = {
+      características: {
+        velocidad: robotData.velocidad,
+        resistencia: robotData.resistencia,
+        creación: robotData.creación,
+      },
+      nombre: "María " + robotData.nombre,
+      imagen: robotData.imagen,
+      _id: currentRobot._id,
+    };
+    updateRobot(updatedRobot);
+    setIsEditing(false);
+  };
+
+  const onSubmit = (event) => {
+    event.preventDefault();
+    if (isEditing) {
+      editRobotOnClick();
+    } else {
+      createRobotOnClick();
+    }
 
     setRobotData(initialValues);
   };
@@ -151,7 +192,7 @@ const Form = ({ createRobot }) => {
             disabled={isDisabled}
             onClick={onSubmit}
           >
-            Añadir
+            {isEditing ? "Aceptar" : "Añadir"}
           </button>
         </form>
       </div>
@@ -161,6 +202,8 @@ const Form = ({ createRobot }) => {
 
 Form.propTypes = {
   createRobot: PropTypes.func.isRequired,
+  updateRobot: PropTypes.func,
+  isEditing: PropTypes.bool,
 };
 
 export default Form;

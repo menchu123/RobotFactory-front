@@ -2,6 +2,7 @@ import {
   createRobotAction,
   deleteRobotAction,
   loadRobotsAction,
+  updateRobotAction,
 } from "../actions/actionCreators";
 
 const urlApi = "https://w06-robots-menchu.herokuapp.com/robots";
@@ -41,4 +42,19 @@ export const deleteRobotThunk = (id) => async (dispatch) => {
   if (response.ok) {
     dispatch(deleteRobotAction(id));
   }
+};
+
+export const updateRobotThunk = (robot) => async (dispatch) => {
+  const response = await fetch(
+    urlApi + "/update?token=" + process.env.REACT_APP_TOKEN,
+    {
+      method: "PUT",
+      body: JSON.stringify(robot),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
+  robot = await response.json();
+  dispatch(updateRobotAction(robot));
 };

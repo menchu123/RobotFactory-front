@@ -4,6 +4,7 @@ import {
   createRobotThunk,
   deleteRobotThunk,
   loadRobotsThunk,
+  updateRobotThunk,
 } from "../redux/thunks/robotsThunks";
 
 const useRobots = () => {
@@ -28,11 +29,19 @@ const useRobots = () => {
     [dispatch]
   );
 
+  const updateRobot = useCallback(
+    (robot) => {
+      dispatch(updateRobotThunk(robot));
+    },
+    [dispatch]
+  );
+
   return {
     robots,
     loadRobots,
     createRobot,
     deleteRobot,
+    updateRobot,
   };
 };
 
