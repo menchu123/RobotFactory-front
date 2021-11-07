@@ -10,13 +10,16 @@ export const loadRobotsThunk = () => async (dispatch) => {
 };
 
 export const createRobotThunk = (robot) => async (dispatch) => {
-  const response = await fetch(urlApi + "/create", {
-    method: "POST",
-    body: JSON.stringify(robot),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+  const response = await fetch(
+    urlApi + "/create?token=" + process.env.REACT_APP_TOKEN,
+    {
+      method: "POST",
+      body: JSON.stringify(robot),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
   robot = await response.json();
   dispatch(createRobotAction(robot));
 };

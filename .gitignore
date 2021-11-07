@@ -24,3 +24,5 @@ yarn-error.log*
 
 sonar-project.properties
 .scannerwork
+
+.env
