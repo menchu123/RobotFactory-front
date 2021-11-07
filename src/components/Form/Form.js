@@ -94,13 +94,19 @@ const Form = ({
         <div className="form__image card-img-top">
           <img
             className="form__image-file"
-            src="https://cdn.vectorstock.com/i/1000x1000/00/03/robot-silhouette-vector-6180003.jpg"
+            src={
+              isEditing
+                ? currentRobot.imagen
+                : "https://cdn.vectorstock.com/i/1000x1000/00/03/robot-silhouette-vector-6180003.jpg"
+            }
             alt="anon-robot"
             height="190"
           />
         </div>
         <form className="form col my-4 px-2">
-          <h5>Añade un robot</h5>
+          <h5>
+            {isEditing ? "Edita a " + currentRobot.nombre : "Añade un robot"}
+          </h5>
           <div className="row">
             <div className="input-group col-md-6">
               <label htmlFor="nombre"></label>
