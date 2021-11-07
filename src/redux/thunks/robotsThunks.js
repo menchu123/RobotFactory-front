@@ -1,4 +1,8 @@
-import { createRobotAction, loadRobotsAction } from "../actions/actionCreators";
+import {
+  createRobotAction,
+  deleteRobotAction,
+  loadRobotsAction,
+} from "../actions/actionCreators";
 
 const urlApi = "https://w06-robots-menchu.herokuapp.com/robots";
 
@@ -22,4 +26,19 @@ export const createRobotThunk = (robot) => async (dispatch) => {
   );
   robot = await response.json();
   dispatch(createRobotAction(robot));
+};
+
+export const deleteRobotThunk = (id) => async (dispatch) => {
+  const response = await fetch(
+    urlApi + "/delete/" + id + "?token=" + process.env.REACT_APP_TOKEN,
+    {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
+  if (response.ok) {
+    dispatch(deleteRobotAction(id));
+  }
 };
