@@ -21,9 +21,10 @@ describe("Given a Robot component", () => {
   describe("When the user hasn't typed a name", () => {
     test("Then it should have a disabled button", () => {
       const store = configureStore();
+      const createRobot = jest.fn();
       render(
         <Provider store={store}>
-          <Form />
+          <Form createRobot={createRobot} />
         </Provider>
       );
       const addButton = screen.getByRole("button", {
@@ -37,9 +38,10 @@ describe("Given a Robot component", () => {
   describe("When the user has only typed an image", () => {
     test("Then it should have a disabled button", () => {
       const store = configureStore();
+      const createRobot = jest.fn();
       render(
         <Provider store={store}>
-          <Form />
+          <Form createRobot={createRobot} />
         </Provider>
       );
 
@@ -57,9 +59,10 @@ describe("Given a Robot component", () => {
   describe("When the user has only typed a creation date", () => {
     test("Then it should have a disabled button", () => {
       const store = configureStore();
+      const createRobot = jest.fn();
       render(
         <Provider store={store}>
-          <Form />
+          <Form createRobot={createRobot} />
         </Provider>
       );
 
@@ -77,16 +80,16 @@ describe("Given a Robot component", () => {
   describe.skip("When the user has typed all fields required", () => {
     test("Then the button should be clickable", () => {
       const store = configureStore();
+      const createRobot = jest.fn();
       render(
         <Provider store={store}>
-          <Form />
+          <Form createRobot={createRobot} />
         </Provider>
       );
 
       const nameInput = screen.getByPlaceholderText("Nombre");
       const imageInput = screen.getByPlaceholderText("URL Imagen");
       const dateInput = screen.getByLabelText("Año");
-      const onSubmit = jest.fn();
       const addButton = screen.getByRole("button", {
         name: "Añadir",
       });
@@ -96,16 +99,17 @@ describe("Given a Robot component", () => {
       userEvent.type(dateInput, "test");
       userEvent.click(addButton);
 
-      expect(onSubmit).toHaveBeenCalled();
+      expect(createRobot).toHaveBeenCalled();
     });
   });
 
   describe("When the user types on Nombre", () => {
     test("Then the value of nombre should be updated", () => {
       const store = configureStore();
+      const createRobot = jest.fn();
       render(
         <Provider store={store}>
-          <Form />
+          <Form createRobot={createRobot} />
         </Provider>
       );
 
@@ -120,9 +124,10 @@ describe("Given a Robot component", () => {
   describe("When the user types on URL Imagen", () => {
     test("Then the value of URL Imagen should be updated", () => {
       const store = configureStore();
+      const createRobot = jest.fn();
       render(
         <Provider store={store}>
-          <Form />
+          <Form createRobot={createRobot} />
         </Provider>
       );
 

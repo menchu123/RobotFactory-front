@@ -1,4 +1,5 @@
 import "./Robot.css";
+import PropTypes from "prop-types";
 
 const Robot = ({ robot }) => {
   return (
@@ -43,6 +44,18 @@ const Robot = ({ robot }) => {
       </div>
     </div>
   );
+};
+
+Robot.propTypes = {
+  robot: PropTypes.shape({
+    nombre: PropTypes.string,
+    imagen: PropTypes.string,
+    características: PropTypes.shape({
+      velocidad: PropTypes.number,
+      resistencia: PropTypes.number,
+      creación: PropTypes.string,
+    }),
+  }),
 };
 
 export default Robot;
