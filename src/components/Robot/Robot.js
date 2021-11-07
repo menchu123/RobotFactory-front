@@ -43,6 +43,7 @@ const Robot = ({ robot, onDeleteClick }) => {
         <button
           className="btn btn-danger m-2"
           onClick={() => onDeleteClick(robot._id)}
+          aria-label="delete"
         >
           Delete
         </button>
