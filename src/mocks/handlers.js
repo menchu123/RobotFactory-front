@@ -32,4 +32,11 @@ export const handlers = [
       return resp;
     }
   ),
+  rest.post(
+    "https://w06-robots-menchu.herokuapp.com/robots/create",
+    async (req, res, ctx) => {
+      const resp = res(ctx.status(200), ctx.json({}));
+      return resp;
+    }
+  ),
 ];

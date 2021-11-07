@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
-import useRobots from "../../hooks/useRobots";
 import "./Form.css";
 
-const Form = () => {
-  const { createRobot } = useRobots();
-
+const Form = ({ createRobot }) => {
   const initialValues = {
     velocidad: "",
     resistencia: "",
