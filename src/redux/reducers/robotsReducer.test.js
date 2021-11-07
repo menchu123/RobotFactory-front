@@ -1,4 +1,4 @@
-import { getRandomRobots } from "../../factories/robotsFactory";
+import { getRandomRobot, getRandomRobots } from "../../factories/robotsFactory";
 import actionTypes from "../actions/actionTypes";
 import robotsReducer from "./robotsReducer";
 
@@ -27,6 +27,21 @@ describe("Given a robotsReducer reducer", () => {
       const newList = robotsReducer(initialRobots, action);
 
       expect(newList).toEqual(initialRobots);
+    });
+  });
+
+  describe("When it receives a robot and a createRobot action", () => {
+    test("Then it should return newRobots including the new robot", () => {
+      const robotsList = getRandomRobots(4);
+      const newRobot = getRandomRobot();
+
+      const action = {
+        type: actionTypes.createRobot,
+        robot: newRobot,
+      };
+      const newRobots = robotsReducer(robotsList, action);
+
+      expect(newRobots).toContain(newRobot);
     });
   });
 });
