@@ -33,6 +33,7 @@ const RobotList = () => {
             currentRobot={currentRobot}
             updateRobot={updateRobot}
             isEditing={isEditing}
+            setIsEditing={setIsEditing}
           />
         </li>
         {robots.map((robot, index) => (

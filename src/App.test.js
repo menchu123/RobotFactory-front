@@ -48,11 +48,33 @@ describe("Given an App component", () => {
         </Provider>
       );
 
-      const deleteButton = await screen.findAllByText("Delete");
+      const deleteButton = await screen.findAllByText("Borrar");
       userEvent.click(deleteButton[0]);
       await waitForElementToBeRemoved(() => screen.getByText("Doraemon"));
       const text = screen.queryByText("Harry");
       expect(text).not.toBeInTheDocument();
+    });
+  });
+
+  describe("When the user click on edit and clicks on submit", () => {
+    test("Then the updated robot should be rendered", async () => {
+      const store = configureStore();
+      render(
+        <Provider store={store}>
+          <App />
+        </Provider>
+      );
+
+      const editButton = await screen.findAllByText("Editar");
+      userEvent.click(editButton[0]);
+
+      const editSubmitButton = await screen.findByText("Aceptar");
+      userEvent.click(editSubmitButton);
+
+      await waitFor(() => {
+        const text = screen.queryByText("Rosi");
+        expect(text).toBeInTheDocument();
+      });
     });
   });
 });

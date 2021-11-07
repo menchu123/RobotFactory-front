@@ -2,7 +2,13 @@ import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import "./Form.css";
 
-const Form = ({ createRobot, currentRobot, updateRobot, isEditing }) => {
+const Form = ({
+  createRobot,
+  currentRobot,
+  updateRobot,
+  isEditing,
+  setIsEditing,
+}) => {
   const initialValues = {
     velocidad: "0",
     resistencia: "0",
@@ -68,6 +74,7 @@ const Form = ({ createRobot, currentRobot, updateRobot, isEditing }) => {
       _id: currentRobot._id,
     };
     updateRobot(updatedRobot);
+    setIsEditing(false);
   };
 
   const onSubmit = (event) => {
@@ -185,7 +192,7 @@ const Form = ({ createRobot, currentRobot, updateRobot, isEditing }) => {
             disabled={isDisabled}
             onClick={onSubmit}
           >
-            {isEditing ? "Editar" : "Añadir"}
+            {isEditing ? "Aceptar" : "Añadir"}
           </button>
         </form>
       </div>

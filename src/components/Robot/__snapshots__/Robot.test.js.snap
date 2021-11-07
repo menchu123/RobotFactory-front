@@ -73,14 +73,14 @@ exports[`Given a Robot component When it recives and object then it should rende
       className="btn btn-warning m-2"
       onClick={[Function]}
     >
-      Edit
+      Editar
     </button>
     <button
       aria-label="delete"
       className="btn btn-danger m-2"
       onClick={[Function]}
     >
-      Delete
+      Borrar
     </button>
   </div>
 </div>
