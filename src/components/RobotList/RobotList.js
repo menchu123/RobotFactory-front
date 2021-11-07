@@ -4,11 +4,15 @@ import Form from "../Form/Form";
 import Robot from "../Robot/Robot";
 
 const RobotList = () => {
-  const { robots, loadRobots, createRobot } = useRobots();
+  const { robots, loadRobots, createRobot, deleteRobot } = useRobots();
 
   useEffect(() => {
     loadRobots();
   }, [loadRobots]);
+
+  const onDelete = (id) => {
+    deleteRobot(id);
+  };
 
   return (
     <>
@@ -19,7 +23,7 @@ const RobotList = () => {
         </li>
         {robots.map((robot, index) => (
           <li className="col mt-3" key={index}>
-            <Robot robot={robot} key={robot.id} />
+            <Robot robot={robot} key={robot.id} onDeleteClick={onDelete} />
           </li>
         ))}
       </ul>

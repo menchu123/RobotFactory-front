@@ -6,7 +6,7 @@ const factory = Factory.define(({ sequence }) => ({
   características: {
     velocidad: datatype.number(10),
     resistencia: datatype.number(10),
-    creación: datatype.number(10),
+    creación: datatype.string(10),
   },
   _id: sequence,
   nombre: name.firstName(),
