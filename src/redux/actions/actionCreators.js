@@ -14,3 +14,12 @@ export const deleteRobotAction = (id) => ({
   type: actionTypes.deleteRobot,
   id,
 });
+
+export const loadEditRobotAction = (robot) => ({
+  type: actionTypes.loadEditRobot,
+  robot,
+});
+
+export const resetEditRobotAction = () => ({
+  type: actionTypes.loadEditRobot,
+});
