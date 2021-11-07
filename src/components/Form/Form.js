@@ -195,6 +195,8 @@ const Form = ({ createRobot, currentRobot, updateRobot, isEditing }) => {
 
 Form.propTypes = {
   createRobot: PropTypes.func.isRequired,
+  updateRobot: PropTypes.func,
+  isEditing: PropTypes.bool,
 };
 
 export default Form;
