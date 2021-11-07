@@ -6,10 +6,10 @@ const editRobotReducer = (
 ) => {
   let newEditRobot;
   switch (action.type) {
-    case actionTypes.loadCurrentChallenge:
-      newEditRobot = { robot: action.challenge, isEditing: true };
+    case actionTypes.loadEditRobot:
+      newEditRobot = { robot: action.robot, isEditing: true };
       break;
-    case actionTypes.resetCurrentChallenge:
+    case actionTypes.resetEditRobot:
       newEditRobot = { robot: {}, isEditing: false };
       break;
     default:
