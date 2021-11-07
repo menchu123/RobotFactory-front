@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import "./Form.css";
 
 const Form = ({ createRobot }) => {
   const initialValues = {
-    velocidad: "",
-    resistencia: "",
+    velocidad: "0",
+    resistencia: "0",
     creación: "",
     nombre: "",
     imagen: "",
@@ -156,6 +157,10 @@ const Form = ({ createRobot }) => {
       </div>
     </>
   );
+};
+
+Form.propTypes = {
+  createRobot: PropTypes.func.isRequired,
 };
 
 export default Form;
