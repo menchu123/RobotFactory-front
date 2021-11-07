@@ -50,11 +50,11 @@ Robot.propTypes = {
   robot: PropTypes.shape({
     nombre: PropTypes.string,
     imagen: PropTypes.string,
-    características: {
+    características: PropTypes.shape({
       velocidad: PropTypes.number,
       resistencia: PropTypes.number,
       creación: PropTypes.string,
-    },
+    }),
   }),
 };
 
