@@ -185,7 +185,7 @@ const Form = ({ createRobot, currentRobot, updateRobot, isEditing }) => {
             disabled={isDisabled}
             onClick={onSubmit}
           >
-            Añadir
+            {isEditing ? "Editar" : "Añadir"}
           </button>
         </form>
       </div>
