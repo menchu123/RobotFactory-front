@@ -51,4 +51,14 @@ export const handlers = [
       return resp;
     }
   ),
+  rest.delete(
+    "https://w06-robots-menchu.herokuapp.com/robots/delete/:idRobot",
+    async (req, res, ctx) => {
+      const resp = res(
+        ctx.status(200),
+        ctx.json({ id: "61855440a99aeba4d99148ef" })
+      );
+      return resp;
+    }
+  ),
 ];

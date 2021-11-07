@@ -1,7 +1,7 @@
 import "./Robot.css";
 import PropTypes from "prop-types";
 
-const Robot = ({ robot }) => {
+const Robot = ({ robot, onDeleteClick }) => {
   return (
     <div className="robot card text-white bg-dark col">
       <div className="robot__image card-img-top">
@@ -40,7 +40,13 @@ const Robot = ({ robot }) => {
       </div>
       <div className="buttons mb-3 mx-3">
         <button className="btn btn-warning m-2">Edit</button>
-        <button className="btn btn-danger m-2">Delete</button>
+        <button
+          className="btn btn-danger m-2"
+          onClick={() => onDeleteClick(robot._id)}
+          aria-label="delete"
+        >
+          Delete
+        </button>
       </div>
     </div>
   );

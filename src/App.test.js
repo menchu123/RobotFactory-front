@@ -1,8 +1,14 @@
 import { server } from "./mocks/server";
-import { render, screen, waitFor } from "@testing-library/react";
+import {
+  render,
+  screen,
+  waitFor,
+  waitForElementToBeRemoved,
+} from "@testing-library/react";
 import App from "./App";
 import configureStore from "./redux/store";
 import { Provider } from "react-redux";
+import userEvent from "@testing-library/user-event";
 
 beforeAll(() => {
   server.listen();
@@ -30,6 +36,23 @@ describe("Given an App component", () => {
       await waitFor(() => {
         expect(text1).toBeInTheDocument();
       });
+    });
+  });
+
+  describe("When the user clicks on delete in a Robot card", () => {
+    test("Then the robot should be deleted", async () => {
+      const store = configureStore();
+      render(
+        <Provider store={store}>
+          <App />
+        </Provider>
+      );
+
+      const deleteButton = await screen.findAllByText("Delete");
+      userEvent.click(deleteButton[0]);
+      await waitForElementToBeRemoved(() => screen.getByText("Doraemon"));
+      const text = screen.queryByText("Harry");
+      expect(text).not.toBeInTheDocument();
     });
   });
 });

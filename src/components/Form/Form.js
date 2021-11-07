@@ -136,7 +136,7 @@ const Form = ({ createRobot }) => {
             <div className="form-group col mt-2">
               <label htmlFor="creación">Año</label>
               <input
-                type="number"
+                type="text"
                 className="form-control"
                 id="creación"
                 value={robotData.creación}
