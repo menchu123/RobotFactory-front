@@ -35,7 +35,19 @@ export const handlers = [
   rest.post(
     "https://w06-robots-menchu.herokuapp.com/robots/create",
     async (req, res, ctx) => {
-      const resp = res(ctx.status(200), ctx.json({}));
+      const resp = res(
+        ctx.status(200),
+        ctx.json({
+          características: {
+            velocidad: 0,
+            resistencia: 10,
+            creación: "2021-11-05T16:21:22.000Z",
+          },
+          _id: "61855440a99aeba4d99148ef",
+          nombre: "Rosi",
+          imagen: "https://cdn.kapwing.com/video_image-uBSRyuvqm.jpeg",
+        })
+      );
       return resp;
     }
   ),
