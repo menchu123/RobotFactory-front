@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import "./App.css";
 import RobotList from "./components/RobotList/RobotList";
 import useRobots from "./hooks/useRobots";
 
