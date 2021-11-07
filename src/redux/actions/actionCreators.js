@@ -16,15 +16,6 @@ export const deleteRobotAction = (id) => ({
 });
 
 export const updateRobotAction = (robot) => ({
-  type: actionTypes.updateRobotAction,
+  type: actionTypes.updateRobot,
   robot,
-});
-
-export const loadEditRobotAction = (robot) => ({
-  type: actionTypes.loadEditRobot,
-  robot,
-});
-
-export const resetEditRobotAction = () => ({
-  type: actionTypes.loadEditRobot,
 });

@@ -71,6 +71,7 @@ exports[`Given a Robot component When it recives and object then it should rende
   >
     <button
       className="btn btn-warning m-2"
+      onClick={[Function]}
     >
       Edit
     </button>
