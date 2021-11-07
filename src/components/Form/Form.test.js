@@ -3,6 +3,19 @@ import userEvent from "@testing-library/user-event";
 import Form from "./Form";
 import configureStore from "../../redux/store/index";
 import { Provider } from "react-redux";
+import { server } from "../../mocks/server";
+
+beforeAll(() => {
+  server.listen();
+});
+
+afterEach(() => {
+  server.resetHandlers();
+});
+
+afterAll(() => {
+  server.close();
+});
 
 describe("Given a Robot component", () => {
   describe("When the user hasn't typed a name", () => {
