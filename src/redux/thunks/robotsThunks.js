@@ -10,7 +10,7 @@ export const loadRobotsThunk = () => async (dispatch) => {
 };
 
 export const createRobotThunk = (robot) => async (dispatch) => {
-  const response = await fetch(urlApi, {
+  const response = await fetch(urlApi + "/create", {
     method: "POST",
     body: JSON.stringify(robot),
     headers: {

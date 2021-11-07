@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
+import useRobots from "../../hooks/useRobots";
 import "./Form.css";
 
 const Form = () => {
+  const { createRobot } = useRobots();
+
   const initialValues = {
     velocidad: "",
     resistencia: "",
@@ -41,10 +44,7 @@ const Form = () => {
       imagen: robotData.imagen,
     };
 
-    console.log(
-      "*In development* Submitting will create the following robot: " +
-        JSON.stringify(newRobot)
-    );
+    createRobot(newRobot);
 
     setRobotData(initialValues);
   };
