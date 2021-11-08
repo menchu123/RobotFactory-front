@@ -8,11 +8,13 @@ import {
 const urlApi = "https://w06-robots-menchu.herokuapp.com/robots";
 
 export const loadRobotsThunk = () => async (dispatch) => {
+  const { token } = JSON.parse(
+    localStorage.getItem(process.env.REACT_APP_LOCAL_STORAGE)
+  );
   const response = await fetch(urlApi, {
     method: "GET",
     headers: {
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxODkxYzU1YzFiMWI3YzEzYjlhZmFlMSIsIm5hbWUiOiJNYXLDrWEiLCJpYXQiOjE2MzYzOTIzMDUsImV4cCI6MTYzNjQ3ODcwNX0.AV88YvPnI_DJ80z9dTWVuzBXavC2woX_6NW-ApEbvVI",
+      Authorization: "Bearer" + token,
     },
   });
   const robots = await response.json();
