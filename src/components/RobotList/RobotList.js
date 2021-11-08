@@ -25,7 +25,6 @@ const RobotList = () => {
 
   return (
     <>
-      <h2 className="text-center mt-4">Meet the Bots</h2>
       <ul className="list-unstyled row row-cols-md-4">
         <li className="form-container col mt-3">
           <Form

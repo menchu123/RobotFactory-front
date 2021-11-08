@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import { userLogoutAction } from "../redux/actions/actionCreators";
 import { loginUserThunk } from "../redux/thunks/userThunks";
 
 const useUser = () => {
@@ -10,7 +11,11 @@ const useUser = () => {
     dispatch(loginUserThunk(user));
   };
 
-  return { user, loginUser };
+  const logoutUser = () => {
+    dispatch(userLogoutAction());
+  };
+
+  return { user, loginUser, logoutUser };
 };
 
 export default useUser;
