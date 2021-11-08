@@ -25,7 +25,6 @@ const userReducer = (
     default:
       newUser = user;
   }
-  console.log(newUser);
   return newUser;
 };
 

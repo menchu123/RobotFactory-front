@@ -10,8 +10,6 @@ function App() {
   const { user } = useUser();
   const dispatch = useDispatch();
 
-  console.log(user.isAuthenticated);
-
   useEffect(() => {
     const token = JSON.parse(
       localStorage.getItem(process.env.REACT_APP_LOCAL_STORAGE)
