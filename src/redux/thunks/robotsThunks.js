@@ -14,7 +14,7 @@ export const loadRobotsThunk = () => async (dispatch) => {
   const response = await fetch(urlApi, {
     method: "GET",
     headers: {
-      Authorization: "Bearer" + token,
+      Authorization: "Bearer " + token,
     },
   });
   const robots = await response.json();

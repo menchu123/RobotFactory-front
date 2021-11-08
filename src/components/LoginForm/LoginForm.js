@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+import useUser from "../../hooks/useUser";
 
 const LoginForm = () => {
+  const { loginUser } = useUser();
   const initialValues = {
     username: "",
     password: "",
@@ -23,7 +25,7 @@ const LoginForm = () => {
 
   const onSubmit = (event) => {
     event.preventDefault();
-
+    loginUser(userData);
     setUserData(initialValues);
   };
 
