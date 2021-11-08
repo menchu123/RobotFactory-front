@@ -24,29 +24,31 @@ const RobotList = () => {
   };
 
   return (
-    <>
-      <ul className="list-unstyled row row-cols-md-4">
-        <li className="form-container col mt-3">
-          <Form
-            createRobot={createRobot}
-            currentRobot={currentRobot}
-            updateRobot={updateRobot}
-            isEditing={isEditing}
-            setIsEditing={setIsEditing}
-          />
-        </li>
-        {robots.map((robot, index) => (
-          <li className="col mt-3" key={index}>
-            <Robot
-              robot={robot}
-              key={robot.id}
-              onDeleteClick={onDelete}
-              onEditClick={onEdit}
+    robots.length && (
+      <>
+        <ul className="list-unstyled row row-cols-md-4">
+          <li className="form-container col mt-3">
+            <Form
+              createRobot={createRobot}
+              currentRobot={currentRobot}
+              updateRobot={updateRobot}
+              isEditing={isEditing}
+              setIsEditing={setIsEditing}
             />
           </li>
-        ))}
-      </ul>
-    </>
+          {robots.map((robot, index) => (
+            <li className="col mt-3" key={index}>
+              <Robot
+                robot={robot}
+                key={robot.id}
+                onDeleteClick={onDelete}
+                onEditClick={onEdit}
+              />
+            </li>
+          ))}
+        </ul>
+      </>
+    )
   );
 };
 

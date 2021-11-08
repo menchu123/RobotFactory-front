@@ -5,6 +5,7 @@ import { userLoginAction } from "../actions/actionCreators";
 const urlApi = "https://w06-robots-menchu.herokuapp.com/";
 
 export const loginUserThunk = (user) => async (dispatch) => {
+  console.log(user);
   const response = await axios.post(urlApi + "users/login", user);
   if (response.status === 200) {
     const token = response.data.token;

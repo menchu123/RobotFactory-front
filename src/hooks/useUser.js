@@ -7,7 +7,7 @@ const useUser = () => {
   const user = useSelector(({ user }) => user);
   const dispatch = useDispatch();
 
-  const loginUser = () => {
+  const loginUser = (user) => {
     dispatch(loginUserThunk(user));
   };
 
