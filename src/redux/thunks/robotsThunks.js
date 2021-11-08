@@ -23,6 +23,9 @@ export const loadRobotsThunk = () => async (dispatch) => {
 };
 
 export const createRobotThunk = (robot) => async (dispatch) => {
+  const { token } = JSON.parse(
+    localStorage.getItem(process.env.REACT_APP_LOCAL_STORAGE)
+  );
   const response = await fetch(
     urlApi + "/create?token=" + process.env.REACT_APP_TOKEN,
     {
@@ -30,6 +33,7 @@ export const createRobotThunk = (robot) => async (dispatch) => {
       body: JSON.stringify(robot),
       headers: {
         "Content-Type": "application/json",
+        Authorization: "Bearer " + token,
       },
     }
   );
@@ -38,12 +42,16 @@ export const createRobotThunk = (robot) => async (dispatch) => {
 };
 
 export const deleteRobotThunk = (id) => async (dispatch) => {
+  const { token } = JSON.parse(
+    localStorage.getItem(process.env.REACT_APP_LOCAL_STORAGE)
+  );
   const response = await fetch(
     urlApi + "/delete/" + id + "?token=" + process.env.REACT_APP_TOKEN,
     {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
+        Authorization: "Bearer " + token,
       },
     }
   );
@@ -53,6 +61,9 @@ export const deleteRobotThunk = (id) => async (dispatch) => {
 };
 
 export const updateRobotThunk = (robot) => async (dispatch) => {
+  const { token } = JSON.parse(
+    localStorage.getItem(process.env.REACT_APP_LOCAL_STORAGE)
+  );
   const response = await fetch(
     urlApi + "/update?token=" + process.env.REACT_APP_TOKEN,
     {
@@ -60,6 +71,7 @@ export const updateRobotThunk = (robot) => async (dispatch) => {
       body: JSON.stringify(robot),
       headers: {
         "Content-Type": "application/json",
+        Authorization: "Bearer " + token,
       },
     }
   );
