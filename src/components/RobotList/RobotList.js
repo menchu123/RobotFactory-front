@@ -23,32 +23,32 @@ const RobotList = () => {
     setIsEditing(true);
   };
 
-  return (
-    robots.length && (
-      <>
-        <ul className="list-unstyled row row-cols-md-4">
-          <li className="form-container col mt-3">
-            <Form
-              createRobot={createRobot}
-              currentRobot={currentRobot}
-              updateRobot={updateRobot}
-              isEditing={isEditing}
-              setIsEditing={setIsEditing}
+  return robots.length ? (
+    <>
+      <ul className="list-unstyled row row-cols-md-4">
+        <li className="form-container col mt-3">
+          <Form
+            createRobot={createRobot}
+            currentRobot={currentRobot}
+            updateRobot={updateRobot}
+            isEditing={isEditing}
+            setIsEditing={setIsEditing}
+          />
+        </li>
+        {robots.map((robot, index) => (
+          <li className="col mt-3" key={index}>
+            <Robot
+              robot={robot}
+              key={robot.id}
+              onDeleteClick={onDelete}
+              onEditClick={onEdit}
             />
           </li>
-          {robots.map((robot, index) => (
-            <li className="col mt-3" key={index}>
-              <Robot
-                robot={robot}
-                key={robot.id}
-                onDeleteClick={onDelete}
-                onEditClick={onEdit}
-              />
-            </li>
-          ))}
-        </ul>
-      </>
-    )
+        ))}
+      </ul>
+    </>
+  ) : (
+    <h4 className="mt-5 text-center">Loading...</h4>
   );
 };
 
