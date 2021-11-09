@@ -25,7 +25,11 @@ function App() {
         <h2 className="mt-4">Meet the Bots</h2>
         <LoginForm isAuthenticated={user.isAuthenticated} />
       </header>
-      {user.isAuthenticated ? <RobotList /> : ""}
+      {user.isAuthenticated ? (
+        <RobotList />
+      ) : (
+        <h3 className="mt-5 text-center">You shall not see the bots</h3>
+      )}
     </div>
   );
 }
