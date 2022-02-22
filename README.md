@@ -3,7 +3,7 @@
 ## Listado de robots
 
 - RECIBE un array de robots
-- Renderiza una lista de Robots
+- Renderiza una lista de robots
 - TIENE un botón para añadir robots
 
 ## Robot
